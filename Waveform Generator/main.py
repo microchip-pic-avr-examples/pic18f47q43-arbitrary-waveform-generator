@@ -1,12 +1,18 @@
-def get_name():
-    name = "1234"
+source_file = 'audacity.wav'
+sample_name = 'wav1'
+sample_points = 100
+output_file = '0'
 
+def format_name(name):
     name = name.ljust(16)
 
     name = name[0:16]
 
     return name
 
+
+# Ensure that input file is single channel signed 16-bit PCM
+# If so, return the actual data
 
 def parse_header(entire):
     splitter = 'data'
@@ -31,6 +37,8 @@ def parse_header(entire):
     return content
 
 
+# Convert signed 16-bit PCM to 8-bit unsigned PCM
+
 def decode(entire):
     out_vals = []
 
@@ -38,22 +46,29 @@ def decode(entire):
     for byte in it:
         next_byte = next(it)
 
+        # Combine msb and lsb
         msb = byte & 0xff
         lsb = next_byte << 8
         full_number = int(lsb | msb)
 
+        # Remove sign bit
         base = full_number & 0x7FFF
 
+        # If sign bit set, make base negative
         if full_number & 0x8000:
             base -= 0x8000
 
+        # Reduce 16 bit signed to 8 bit signed
         base = int(base / 2**8)
 
+        # Shift value to be unsigned
         base += 127
         out_vals.append(base)
 
     return out_vals
 
+
+# Reduce input samples down to num_samples of samples
 
 def consolidate(values, num_samples):
 
@@ -80,21 +95,29 @@ def consolidate(values, num_samples):
     return all_points
 
 
-with open('audacity.wav', 'rb') as f:
+with open(source_file, 'rb') as f:
     entire = f.read()
 
+# Remove header
 body = parse_header(entire)
+
+# 16-bit signed PCM to 8-bit unsigned PCM
 vals = decode(body)
 
-vals = consolidate(vals, 100)
+# Reduce down to 100 samples
+vals = consolidate(vals, sample_points)
 
-name = get_name().encode('UTF-8')
+# Metadata field name
+name = format_name(sample_name).encode('UTF-8')
 
+# Metadata field length
 length = bytes([len(vals)])
 
 vals = bytes(vals)
 
+# Add metadata to packet
 vals = name + length + vals
 
-with open('out', "wb") as f:
+# Write out file
+with open(output_file, "wb") as f:
        f.write(vals)
