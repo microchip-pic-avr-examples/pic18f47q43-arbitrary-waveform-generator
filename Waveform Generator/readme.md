@@ -11,9 +11,9 @@ Input must be in the form of a single-channel 16-bit signed PCM .wav file.
 Additionally, the length of the sample should be such that a maximum of 255
 data points should be sufficient to characterize the waveform. The below
 screenshot shows the export settings for the free audio editing program
-Audacity
+Audacity:
 
-![Export](../../images/export.jpg)
+![Export](../images/export.png)
 
 ### Python Requirements
 
