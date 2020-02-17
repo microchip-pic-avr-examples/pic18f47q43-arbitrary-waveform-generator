@@ -83,10 +83,12 @@ void TMR2_Initialize(void)
 Using the two push buttons on pins RC5 and RB4, different waveforms stored in the SD card can be loaded to the DMA look up table and then observed on the DAC output.
 
 ![Image of LCD click](images/saw_lcd.jpg)
+
 ![Image of scope_1](images/saw_cap.png)
 
 
 ![Image of LCD click](images/sine_lcd.jpg)
+
 ![Image of scope_2](images/sine_cap.png)  
 
 # Conclusion
