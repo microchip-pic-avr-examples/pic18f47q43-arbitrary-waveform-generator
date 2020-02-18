@@ -19,7 +19,7 @@
     CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
-*/
+ */
 
 #include "file_manager.h"
 #include "mcc_generated_files/mcc.h"
@@ -29,7 +29,10 @@
 
 void enumerate_files(void) {
     FATFS fs; /* File system object */
-    FRESULT status = pf_mount(&fs);
+    FRESULT status;
+    do {
+        status = pf_mount(&fs);
+    } while (status != FR_OK);
 
     char location_string[] = {'0'};
     uint8_t placeholder;
@@ -61,7 +64,7 @@ void load_waveform(uint8_t waveform) {
 
     pf_open(location_string);
     lcd_writeString(CURRENT_STRING, 0);
-    
+
     pf_read(file_buffer, FILE_METADATA_LENGTH, placeholder);
     pf_read(file_buffer, length, &length);
 
