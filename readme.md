@@ -11,7 +11,7 @@ The application reads the data from the SD card and creates a look up table in t
 
 The High Pin-count Curiosity Board [DM164136](https://www.microchip.com/Developmenttools/ProductDetails/DM164136) is used to house the PIC18F47Q43 device and the two MikroElektronika Click board slots are used to house the LCD click in slot 2 and the SD card click in slot 1. The waveform is output on pin RA2.
 
-![Image of the setup](images/hardware.jpg)
+![Image of the setup](images/hardware.png)
 
 # Software Configuration
 
@@ -82,12 +82,12 @@ void TMR2_Initialize(void)
 
 Using the two push buttons on pins RC5 and RB4, different waveforms stored in the SD card can be loaded to the DMA look up table and then observed on the DAC output.
 
-![Image of LCD click](images/saw_lcd.jpg)
+![Image of LCD click](images/saw_lcd.png)
 
 ![Image of scope_1](images/saw_cap.png)
 
 
-![Image of LCD click](images/sine_lcd.jpg)
+![Image of LCD click](images/sine_lcd.png)
 
 ![Image of scope_2](images/sine_cap.png)  
 
