@@ -39,6 +39,7 @@
         "author": "Microchip",
         "subcategories": [
             "MCC",
+            "Analog",
             [
                "Peripherals", "DAC"
             ],
@@ -54,7 +55,8 @@
         ],
         "keywords": [
             "MCC",
-            "Intelligent Analog"
+            "Intelligent Analog",
+            "PIC18"
         ],
 		"additionalData": {
 			"longDescription": {
