@@ -4,20 +4,20 @@
     "content": {
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f47q43-arbitrary-waveform-generator",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "displayName": "Arbitrary Waveform Generator Using DAC and DMA",
         "projectName": "pic18f47q43-arbitrary-waveform-generator",
         "shortDescription": "DMA-generated arbitrary waveform generator",
         "ide": {
-            "name": "MPLABX",
+            "name": "MPLAB X",
             "semverRange": ">=5.40.0"
         },
         "compiler": [
-			{
-				"name": "XC8",
-				"semverRange": "^2.10.0"
-			}
-		],
+            {
+                "name": "XC8",
+                "semverRange": "^2.10.0"
+            }
+        ],
         "dfp": {
             "name": "PIC18F-Q_DFP",
             "semverRange": "^1.3.89"
@@ -41,33 +41,38 @@
             "MCC",
             "Analog",
             [
-               "Peripherals", "DAC"
+                "Peripherals",
+                "DAC"
             ],
             [
-               "Peripherals", "SPI"
+                "Peripherals",
+                "SPI"
             ],
             [
-               "Peripherals", "DMA"
+                "Peripherals",
+                "DMA"
             ]
         ],
         "peripherals": [
-            "DAC","SPI","DMA"
+            "DAC",
+            "SPI",
+            "DMA"
         ],
         "keywords": [
             "MCC",
             "Intelligent Analog",
             "PIC18"
         ],
-		"additionalData": {
-			"longDescription": {
-				"metaDataVersion": "1.0.0",
-				"category": "com.microchip.portal.fileRef",
-				"content": {
-					"metaDataVersion": "1.0.0",
-					"fileName": "./README.md",
-					"mimeType": "text/markdown"
-				}
-			}
-		}
-	}
+        "additionalData": {
+            "longDescription": {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.fileRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "fileName": "./README.md",
+                    "mimeType": "text/markdown"
+                }
+            }
+        }
+    }
 }
